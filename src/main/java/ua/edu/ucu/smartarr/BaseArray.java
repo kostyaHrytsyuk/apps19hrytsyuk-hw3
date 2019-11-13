@@ -16,7 +16,7 @@ public class BaseArray implements SmartArray {
 
     @Override
     public String operationDescription() {
-        return null;
+        return "Base Array";
     }
 
     @Override
