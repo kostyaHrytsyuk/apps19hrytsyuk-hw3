@@ -1,6 +1,11 @@
 package ua.edu.ucu;
 
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 import ua.edu.ucu.functions.MyComparator;
 import ua.edu.ucu.functions.MyFunction;
 import ua.edu.ucu.functions.MyPredicate;
@@ -53,8 +58,10 @@ public class SmartArrayApp {
             findDistinctStudentNamesFrom2ndYearWithGPAgt4AndOrderedBySurname(Student[] students) {
 
         // Hint: to convert Object[] to String[] - use the following code
-        //Object[] result = studentSmartArray.toArray();
-        //return Arrays.copyOf(result, result.length, String[].class);
-        return null;
+
+        Stream<Student> filtered = Arrays.stream(students).filter(s -> s.getYear() == 2 && s.getGPA() >= 4);
+        Stream<Student> sorted = filtered.sorted(Comparator.comparing(Student::getSurname));
+        List<String> result = sorted.distinct().map(s -> s.getSurname() + ' ' + s.getName()).collect(Collectors.toList());
+        return Arrays.copyOf(result.toArray(), result.size(), String[].class);
     }
 }
