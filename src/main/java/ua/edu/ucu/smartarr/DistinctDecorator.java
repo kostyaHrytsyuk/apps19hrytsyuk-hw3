@@ -24,9 +24,4 @@ public class DistinctDecorator extends SmartArrayDecorator {
     public String operationDescription() {
         return "Distinction";
     }
-
-    @Override
-    public int size() {
-        return super.size();
-    }
 }
