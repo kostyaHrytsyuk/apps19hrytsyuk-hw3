@@ -50,6 +50,6 @@ class Student {
         if (!this.name.equals(s.getName())) return false;
         else if (!this.surname.equals(s.getSurname())) return false;
         else if (this.year != s.getYear()) return false;
-        else return this.GPA == s.getGPA();
+        else return ((this.GPA - s.getGPA()) <= 0.00001);
     }
 }
