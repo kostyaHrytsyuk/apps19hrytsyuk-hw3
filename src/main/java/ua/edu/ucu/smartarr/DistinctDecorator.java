@@ -7,17 +7,17 @@ public class DistinctDecorator extends SmartArrayDecorator {
 
     public DistinctDecorator(SmartArray smartArray) {
         super(smartArray);
-        this.smartArray = proceed();
+        this.setSmartArray(proceed());
     }
 
     private SmartArray proceed() {
         System.out.println(operationDescription());
-        return new BaseArray(Arrays.stream(this.smartArray.toArray()).distinct().toArray());
+        return new BaseArray(Arrays.stream(this.getSmartArray().toArray()).distinct().toArray());
     }
 
     @Override
     public Object[] toArray() {
-        return this.smartArray.toArray();
+        return this.getSmartArray().toArray();
     }
 
     @Override

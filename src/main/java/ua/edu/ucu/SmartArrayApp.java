@@ -5,7 +5,12 @@ import java.util.Arrays;
 import ua.edu.ucu.functions.MyComparator;
 import ua.edu.ucu.functions.MyFunction;
 import ua.edu.ucu.functions.MyPredicate;
-import ua.edu.ucu.smartarr.*;
+import ua.edu.ucu.smartarr.BaseArray;
+import ua.edu.ucu.smartarr.SmartArray;
+import ua.edu.ucu.smartarr.FilterDecorator;
+import ua.edu.ucu.smartarr.SortDecorator;
+import ua.edu.ucu.smartarr.MapDecorator;
+import ua.edu.ucu.smartarr.DistinctDecorator;
 
 public class SmartArrayApp {
 
@@ -14,7 +19,7 @@ public class SmartArrayApp {
                 
         MyPredicate pr = t -> ((Integer) t) > 0;
 
-        MyComparator cmp = (o1, o2) -> ((Integer) o1) - ((Integer) o2);
+        MyComparator cmp = (firstObject, secondObject) -> ((Integer) firstObject) - ((Integer) secondObject);
 
         MyFunction func = t -> 2 * ((Integer) t);
 
@@ -38,14 +43,16 @@ public class SmartArrayApp {
     public static String[]
             findDistinctStudentNamesFrom2ndYearWithGPAgt4AndOrderedBySurname(Student[] students) {
 
+        int year = 2;
+        double gpa = 4;
         SmartArray smartStudents = new BaseArray(students);
 
         MyPredicate pr = t -> {
             Student s = (Student) t;
-            return s.getYear() == 2 && s.getGPA() >= 4;
+            return s.getYear() == year && s.getGPA() >= gpa;
         };
 
-        MyComparator cmp = (o1, o2) -> ((Student) o1).getSurname().compareTo(((Student) o2).getSurname());
+        MyComparator cmp = (firstObject, secondObject) -> ((Student) firstObject).getSurname().compareTo(((Student) secondObject).getSurname());
 
         MyFunction func = t -> {
             Student s = (Student) t;

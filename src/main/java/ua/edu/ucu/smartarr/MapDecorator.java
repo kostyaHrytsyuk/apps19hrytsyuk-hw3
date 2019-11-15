@@ -13,17 +13,17 @@ public class MapDecorator extends SmartArrayDecorator {
 
     public MapDecorator(SmartArray smartArray, MyFunction function) {
         super(smartArray);
-        this.smartArray = proceed(function);
+        this.setSmartArray(proceed(function));
     }
 
-    private SmartArray proceed(MyFunction function){
+    private SmartArray proceed(MyFunction function) {
         System.out.println(operationDescription());
-        return new BaseArray(Arrays.stream(this.smartArray.toArray()).map(function::apply).toArray());
+        return new BaseArray(Arrays.stream(this.getSmartArray().toArray()).map(function::apply).toArray());
     }
 
     @Override
     public Object[] toArray() {
-        return this.smartArray.toArray();
+        return this.getSmartArray().toArray();
     }
 
     @Override

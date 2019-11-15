@@ -9,17 +9,17 @@ public class SortDecorator extends SmartArrayDecorator {
 
     public SortDecorator(SmartArray smartArray, MyComparator comparator) {
         super(smartArray);
-        this.smartArray = proceed(comparator);
+        this.setSmartArray(proceed(comparator));
     }
 
     private SmartArray proceed(MyComparator comparator) {
         System.out.println(operationDescription());
-        return new BaseArray(Arrays.stream(this.smartArray.toArray()).sorted(comparator).toArray());
+        return new BaseArray(Arrays.stream(this.getSmartArray().toArray()).sorted(comparator).toArray());
     }
 
     @Override
     public Object[] toArray() {
-        return this.smartArray.toArray();
+        return this.getSmartArray().toArray();
     }
 
     @Override
