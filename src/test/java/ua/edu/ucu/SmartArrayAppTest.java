@@ -10,6 +10,12 @@ import static org.junit.Assert.*;
 public class SmartArrayAppTest {
 
     @Test
+    public void testConstructor() {
+        SmartArrayApp app = new SmartArrayApp();
+        assertTrue(app instanceof SmartArrayApp);
+    }
+
+    @Test
     public void testFilterPositiveIntegersSortAndMultiplyBy2() {
         Integer[] integers = {-1, 2, 0, 1, -5, 3};
         

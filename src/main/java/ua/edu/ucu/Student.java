@@ -44,25 +44,13 @@ class Student {
     @Override
     public boolean equals(Object obj) {
         double eps = 0.00001;
-        if (this == obj) { 
-            return true;
-        } else if (obj == null) {
-            return false;
-        } else if (getClass() != obj.getClass()) { 
-            return false; 
-        }
+        if (this == obj) { return true; }
+        else if (obj == null) { return false; }
+        else if (getClass() != obj.getClass()) { return false; }
         Student s = (Student) obj;
-        if (!this.name.equals(s.getName())) { 
-            return false;
-        }
-        else if (!this.surname.equals(s.getSurname())) { 
-            return false;
-        }
-        else if (this.year != s.getYear()) { 
-            return false;
-        }
-        else {
-            return (this.gpa - s.getGPA() <= eps); 
-        }
+        if (!this.name.equals(s.getName())) { return false; }
+        else if (!this.surname.equals(s.getSurname())) { return false; }
+        else if (this.year != s.getYear()) { return false; }
+        else { return (this.gpa - s.getGPA() <= eps); }
     }
 }
