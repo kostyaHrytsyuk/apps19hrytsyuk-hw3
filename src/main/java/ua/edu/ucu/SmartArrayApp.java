@@ -14,6 +14,8 @@ import ua.edu.ucu.smartarr.DistinctDecorator;
 
 public class SmartArrayApp {
 
+    public SmartArrayApp() {}
+
     public static Integer[]
             filterPositiveIntegersSortAndMultiplyBy2(Integer[] integers) {
                 
