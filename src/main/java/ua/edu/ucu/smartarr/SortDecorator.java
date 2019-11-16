@@ -26,9 +26,4 @@ public class SortDecorator extends SmartArrayDecorator {
     public String operationDescription() {
         return "Sorting";
     }
-
-    @Override
-    public int size() {
-        return 0;
-    }
 }

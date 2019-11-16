@@ -6,10 +6,6 @@ import ua.edu.ucu.functions.MyPredicate;
 // Tests every element and removes it if it doesn't satisfy MyPredicate
 public class FilterDecorator extends SmartArrayDecorator {
 
-    public FilterDecorator(SmartArray smartArray) {
-        super(smartArray);
-    }
-
     public FilterDecorator(SmartArray smartArray, MyPredicate predicate) {
         super(smartArray);
         this.setSmartArray(proceed(predicate));
@@ -30,8 +26,4 @@ public class FilterDecorator extends SmartArrayDecorator {
         return "Filtering";
     }
 
-    @Override
-    public int size() {
-        return super.size();
-    }
 }
